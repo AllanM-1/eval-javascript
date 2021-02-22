@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap');
+
+body {
+    font-family: 'Lato';
+    font-weight: 300;
+}
+
+.main-grid .grid-new-game,
+.main-grid .grid-player1,
+.main-grid .grid-player2,
+.main-grid .grid-dice,
+.main-grid .grid-current-player1,
+.main-grid .grid-current-player2,
+.main-grid .grid-player-options
+{
+    text-align: center;
+}
+
+/* To better see the structure just for dev */
+ion-grid, ion-row, ion-col {
+    border: 1px solid #CCCCCC;
+}
+
+.main-grid {
+    height: 100%;
+}
+
+.top-row {
+    height: 10%;
+}
+
+.middle-row {
+    height: 60%;
+}
+
+.bottom-row {
+    height: 30%;
+}
