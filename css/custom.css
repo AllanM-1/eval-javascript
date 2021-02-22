@@ -1,0 +1,10 @@
+.main-grid .grid-new-game,
+.main-grid .grid-player1,
+.main-grid .grid-player2,
+.main-grid .grid-dice,
+.main-grid .grid-current-player1,
+.main-grid .grid-current-player2,
+.main-grid .grid-player-options
+{
+    text-align: center;
+}
