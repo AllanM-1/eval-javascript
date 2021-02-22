@@ -8,3 +8,24 @@
 {
     text-align: center;
 }
+
+/* To better see the structure just for dev */
+ion-grid, ion-row, ion-col {
+    border: 1px solid #CCCCCC;
+}
+
+.main-grid {
+    height: 100%;
+}
+
+.top-row {
+    height: 10%;
+}
+
+.middle-row {
+    height: 60%;
+}
+
+.bottom-row {
+    height: 30%;
+}
