@@ -19,6 +19,25 @@ const startNewGame = () => {
     currentScorePlayer1 = 0;
     currentScorePlayer2 = 0;
     currentPlayer = 1;
+
+    document.getElementById('player1Current').innerHTML = 0;
+    document.getElementById('player2Current').innerHTML = 0;
+    document.getElementById('player1Global').innerHTML = 0;
+    document.getElementById('player2Global').innerHTML = 0;
+
+}
+
+// Change player
+const changePlayer = (playerToChange) => {
+    if(playerToChange === 1) {
+        currentPlayer = 2;
+        document.querySelector('#player1Name ion-icon').classList.remove('active');
+        document.querySelector('#player2Name ion-icon').classList.add('active');
+    } else {
+        currentPlayer = 1;
+        document.querySelector('#player2Name ion-icon').classList.remove('active');
+        document.querySelector('#player1Name ion-icon').classList.add('active');
+    }
 }
 
 // This function will be executed if the current player roll the dice
@@ -40,16 +59,29 @@ const rollDice = () => {
         if(currentPlayer === 1) {
             currentScorePlayer1 = 0;
             document.getElementById('player1Current').innerHTML = 0;
-            currentPlayer = 2;
-            document.querySelector('#player1Name ion-icon').classList.remove('active');
-            document.querySelector('#player2Name ion-icon').classList.add('active');
+            changePlayer(currentPlayer);
         } else {
             currentScorePlayer2 += 0;
             document.getElementById('player2Current').innerHTML = 0;
-            currentPlayer = 1;
-            document.querySelector('#player2Name ion-icon').classList.remove('active');
-            document.querySelector('#player1Name ion-icon').classList.add('active');
+            changePlayer(currentPlayer);
         }
+    }
+}
+
+// Function to execute if the current player hold
+const hold = () => {
+    if(currentPlayer === 1) {
+        globalScorePlayer1 += currentScorePlayer1;
+        currentScorePlayer1 = 0;
+        document.getElementById('player1Current').innerHTML = 0;
+        document.getElementById('player1Global').innerHTML = globalScorePlayer1;
+        changePlayer(currentPlayer);
+    } else {
+        globalScorePlayer2 += currentScorePlayer2;
+        currentScorePlayer2 = 0;
+        document.getElementById('player2Current').innerHTML = 0;
+        document.getElementById('player2Global').innerHTML = globalScorePlayer2;
+        changePlayer(currentPlayer);
     }
 }
 
@@ -65,3 +97,8 @@ btnNewGame.addEventListener('click', () => {
     startNewGame();
 });
 
+// The event to hold
+let btnHold = document.getElementById('hold');
+btnHold.addEventListener('click', () => {
+    hold();
+});
