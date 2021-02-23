@@ -18,13 +18,15 @@ const startNewGame = () => {
     globalScorePlayer2 = 0;
     currentScorePlayer1 = 0;
     currentScorePlayer2 = 0;
-    currentPlayer = 1;
+    changePlayer(2);
 
-    document.getElementById('player1Current').innerHTML = 0;
-    document.getElementById('player2Current').innerHTML = 0;
-    document.getElementById('player1Global').innerHTML = 0;
-    document.getElementById('player2Global').innerHTML = 0;
+    document.getElementById('player1Current').innerHTML = "0";
+    document.getElementById('player2Current').innerHTML = "0";
+    document.getElementById('player1Global').innerHTML = "0";
+    document.getElementById('player2Global').innerHTML = "0";
 
+    document.getElementById('rollDice').style.display = 'inline-block';
+    document.getElementById('hold').style.display = 'inline-block';
 }
 
 // Change player
@@ -59,12 +61,11 @@ const rollDice = () => {
         if(currentPlayer === 1) {
             currentScorePlayer1 = 0;
             document.getElementById('player1Current').innerHTML = 0;
-            changePlayer(currentPlayer);
         } else {
             currentScorePlayer2 += 0;
             document.getElementById('player2Current').innerHTML = 0;
-            changePlayer(currentPlayer);
         }
+        changePlayer(currentPlayer);
     }
 }
 
@@ -75,14 +76,31 @@ const hold = () => {
         currentScorePlayer1 = 0;
         document.getElementById('player1Current').innerHTML = 0;
         document.getElementById('player1Global').innerHTML = globalScorePlayer1;
-        changePlayer(currentPlayer);
+
+        // And the winner is...
+        if(globalScorePlayer1 >= 100) {
+            alert(`The winner is Player ${currentPlayer}`);
+            document.getElementById('rollDice').style.display = 'none';
+            document.getElementById('hold').style.display = 'none';
+        } else {
+            changePlayer(currentPlayer);
+        }
     } else {
         globalScorePlayer2 += currentScorePlayer2;
         currentScorePlayer2 = 0;
         document.getElementById('player2Current').innerHTML = 0;
         document.getElementById('player2Global').innerHTML = globalScorePlayer2;
-        changePlayer(currentPlayer);
+
+        // And the winner is...
+        if(globalScorePlayer2 >= 100) {
+            alert(`The winner is Player ${currentPlayer}`);
+            document.getElementById('rollDice').style.display = 'none';
+            document.getElementById('hold').style.display = 'none';
+        } else {
+            changePlayer(currentPlayer);
+        }
     }
+
 }
 
 // The event to launch the dice
