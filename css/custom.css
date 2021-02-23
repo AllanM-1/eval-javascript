@@ -7,6 +7,16 @@ body {
     background: linear-gradient(90deg, #f0f0f0 50%, #ffffff 50%);
 }
 
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:active
+{
+    outline:none;
+}
+
 .main-grid .grid-new-game,
 .main-grid .grid-player1,
 .main-grid .grid-player2,

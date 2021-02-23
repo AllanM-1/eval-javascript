@@ -21,10 +21,42 @@ const startNewGame = () => {
     currentPlayer = 1;
 }
 
+// This function will be executed if the current player roll the dice
+const rollDice = () => {
+    let currentDice = randomDice();
+    document.getElementById('dice').innerHTML = currentDice;
+
+    // If different than 1 we can add
+    if(currentDice !== 1) {
+        // Add the value of the dice
+        if(currentPlayer === 1) {
+            currentScorePlayer1 += currentDice;
+            document.getElementById('player1Current').innerHTML = currentScorePlayer1;
+        } else {
+            currentScorePlayer2 += currentDice;
+            document.getElementById('player2Current').innerHTML = currentScorePlayer2;
+        }
+    } else { // Else we reset the score and it's the turn of the other player
+        if(currentPlayer === 1) {
+            currentScorePlayer1 = 0;
+            document.getElementById('player1Current').innerHTML = 0;
+            currentPlayer = 2;
+            document.querySelector('#player1Name ion-icon').classList.remove('active');
+            document.querySelector('#player2Name ion-icon').classList.add('active');
+        } else {
+            currentScorePlayer2 += 0;
+            document.getElementById('player2Current').innerHTML = 0;
+            currentPlayer = 1;
+            document.querySelector('#player2Name ion-icon').classList.remove('active');
+            document.querySelector('#player1Name ion-icon').classList.add('active');
+        }
+    }
+}
+
 // The event to launch the dice
 let btnRollDice = document.getElementById('rollDice');
 btnRollDice.addEventListener('click', () => {
-    console.log(randomDice());
+    rollDice();
 });
 
 // The event to start a new game
