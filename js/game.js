@@ -14,6 +14,8 @@ const randomDice = () => {
 
 // Start un new game and reset the values
 const startNewGame = () => {
+    document.getElementById('winner1').classList.remove('pyro');
+    document.getElementById('winner2').classList.remove('pyro');
     globalScorePlayer1 = 0;
     globalScorePlayer2 = 0;
     currentScorePlayer1 = 0;
@@ -86,6 +88,7 @@ const hold = () => {
 
         // And the winner is...
         if(globalScorePlayer1 >= 100) {
+            document.getElementById('winner1').classList.add('pyro');
             alert(`The winner is Player ${currentPlayer}`);
             document.getElementById('rollDice').style.display = 'none';
             document.getElementById('hold').style.display = 'none';
@@ -101,6 +104,7 @@ const hold = () => {
 
         // And the winner is...
         if(globalScorePlayer2 >= 100) {
+            document.getElementById('winner2').classList.add('pyro');
             alert(`The winner is Player ${currentPlayer}`);
             document.getElementById('rollDice').style.display = 'none';
             document.getElementById('hold').style.display = 'none';

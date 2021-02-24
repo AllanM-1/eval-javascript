@@ -5,6 +5,7 @@
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <link href="css/pyro.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body class="ion-text-uppercase">
@@ -21,6 +22,10 @@
                 <div id="player1Name">
                     Player 1 <ion-icon name="ellipse" class="current-point active"></ion-icon>
                 </div>
+                <div id="winner1">
+                    <div class="before"></div>
+                    <div class="after"></div>
+                </div>
                 <div class="global-score" id="player1Global">0</div>
             </ion-col>
             <ion-col size-md="4" size-xs="12" class="grid-dice">
@@ -31,6 +36,10 @@
             <ion-col size-md="4" size-xs="12" class="grid-player2">
                 <div id="player2Name">
                     Player 2 <ion-icon name="ellipse" class="current-point"></ion-icon>
+                </div>
+                <div id="winner2">
+                    <div class="before"></div>
+                    <div class="after"></div>
                 </div>
                 <div class="global-score" id="player2Global">0</div>
             </ion-col>
