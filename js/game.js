@@ -44,29 +44,35 @@ const changePlayer = (playerToChange) => {
 
 // This function will be executed if the current player roll the dice
 const rollDice = () => {
-    let currentDice = randomDice();
-    document.getElementById('dice').innerHTML = currentDice;
+    animateCSS('#dice img', 'shakeY').then((message) => {
+        let currentDice = randomDice();
+        document.querySelector('#dice img').setAttribute('src', 'images/dice'+ currentDice +'.svg');
 
-    // If different than 1 we can add
-    if(currentDice !== 1) {
-        // Add the value of the dice
-        if(currentPlayer === 1) {
-            currentScorePlayer1 += currentDice;
-            document.getElementById('player1Current').innerHTML = currentScorePlayer1;
-        } else {
-            currentScorePlayer2 += currentDice;
-            document.getElementById('player2Current').innerHTML = currentScorePlayer2;
+        // If different than 1 we can add
+        if(currentDice !== 1) {
+            // Add the value of the dice
+            if(currentPlayer === 1) {
+                currentScorePlayer1 += currentDice;
+                document.getElementById('player1Current').innerHTML = currentScorePlayer1;
+                animateCSS('#player1Current', 'zoomIn');
+            } else {
+                currentScorePlayer2 += currentDice;
+                document.getElementById('player2Current').innerHTML = currentScorePlayer2;
+                animateCSS('#player2Current', 'zoomIn');
+            }
+        } else { // Else we reset the score and it's the turn of the other player
+            if(currentPlayer === 1) {
+                currentScorePlayer1 = 0;
+                document.getElementById('player1Current').innerHTML = 0;
+                animateCSS('#player1Current', 'zoomIn');
+            } else {
+                currentScorePlayer2 += 0;
+                document.getElementById('player2Current').innerHTML = 0;
+                animateCSS('#player2Current', 'zoomIn');
+            }
+            changePlayer(currentPlayer);
         }
-    } else { // Else we reset the score and it's the turn of the other player
-        if(currentPlayer === 1) {
-            currentScorePlayer1 = 0;
-            document.getElementById('player1Current').innerHTML = 0;
-        } else {
-            currentScorePlayer2 += 0;
-            document.getElementById('player2Current').innerHTML = 0;
-        }
-        changePlayer(currentPlayer);
-    }
+    });
 }
 
 // Function to execute if the current player hold
@@ -76,6 +82,7 @@ const hold = () => {
         currentScorePlayer1 = 0;
         document.getElementById('player1Current').innerHTML = 0;
         document.getElementById('player1Global').innerHTML = globalScorePlayer1;
+        animateCSS('#player1Global', 'heartBeat');
 
         // And the winner is...
         if(globalScorePlayer1 >= 100) {
@@ -90,6 +97,7 @@ const hold = () => {
         currentScorePlayer2 = 0;
         document.getElementById('player2Current').innerHTML = 0;
         document.getElementById('player2Global').innerHTML = globalScorePlayer2;
+        animateCSS('#player2Global', 'heartBeat');
 
         // And the winner is...
         if(globalScorePlayer2 >= 100) {
@@ -120,3 +128,22 @@ let btnHold = document.getElementById('hold');
 btnHold.addEventListener('click', () => {
     hold();
 });
+
+// Function of animate.css
+const animateCSS = (element, animation, prefix = 'animate__') =>
+    // We create a Promise and return it
+    new Promise((resolve, reject) => {
+        const animationName = `${prefix}${animation}`;
+        const node = document.querySelector(element);
+
+        node.classList.add(`${prefix}animated`, animationName);
+
+        // When the animation ends, we clean the classes and resolve the Promise
+        function handleAnimationEnd(event) {
+            event.stopPropagation();
+            node.classList.remove(`${prefix}animated`, animationName);
+            resolve('Animation ended');
+        }
+
+        node.addEventListener('animationend', handleAnimationEnd, {once: true});
+    });
