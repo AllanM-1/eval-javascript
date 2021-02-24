@@ -28,6 +28,7 @@ const startNewGame = () => {
     document.getElementById('player1Global').innerHTML = "0";
     document.getElementById('player2Global').innerHTML = "0";
 
+    document.querySelector('#dice img').setAttribute('src', 'images/dice0.svg');
     document.getElementById('rollDice').style.display = 'inline-block';
     document.getElementById('hold').style.display = 'inline-block';
 }
