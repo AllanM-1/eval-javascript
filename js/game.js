@@ -36,11 +36,17 @@ const changePlayer = (playerToChange) => {
     if(playerToChange === 1) {
         currentPlayer = 2;
         document.querySelector('#player1Name ion-icon').classList.remove('active');
+        document.getElementById('player1Name').style.fontWeight = 'inherit';
+
         document.querySelector('#player2Name ion-icon').classList.add('active');
+        document.getElementById('player2Name').style.fontWeight = '400';
     } else {
         currentPlayer = 1;
         document.querySelector('#player2Name ion-icon').classList.remove('active');
+        document.getElementById('player2Name').style.fontWeight = 'inherit';
+
         document.querySelector('#player1Name ion-icon').classList.add('active');
+        document.getElementById('player1Name').style.fontWeight = '400';
     }
 }
 
