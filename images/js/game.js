@@ -4,6 +4,7 @@ let globalScorePlayer2 = 0;
 let currentScorePlayer1 = 0;
 let currentScorePlayer2 = 0;
 let currentPlayer = 1;
+document.getElementById('player1Name').style.fontWeight = '400';
 
 // Return the random result of the dice
 const randomDice = () => {
@@ -27,6 +28,7 @@ const startNewGame = () => {
     document.getElementById('player1Global').innerHTML = "0";
     document.getElementById('player2Global').innerHTML = "0";
 
+    document.querySelector('#dice img').setAttribute('src', 'images/dice0.svg');
     document.getElementById('rollDice').style.display = 'inline-block';
     document.getElementById('hold').style.display = 'inline-block';
 }
@@ -36,11 +38,17 @@ const changePlayer = (playerToChange) => {
     if(playerToChange === 1) {
         currentPlayer = 2;
         document.querySelector('#player1Name ion-icon').classList.remove('active');
+        document.getElementById('player1Name').style.fontWeight = 'inherit';
+
         document.querySelector('#player2Name ion-icon').classList.add('active');
+        document.getElementById('player2Name').style.fontWeight = '400';
     } else {
         currentPlayer = 1;
         document.querySelector('#player2Name ion-icon').classList.remove('active');
+        document.getElementById('player2Name').style.fontWeight = 'inherit';
+
         document.querySelector('#player1Name ion-icon').classList.add('active');
+        document.getElementById('player1Name').style.fontWeight = '400';
     }
 }
 
