@@ -1,6 +1,6 @@
 // Set the globals values
-let globalScorePlayer1 = 0;
-let globalScorePlayer2 = 0;
+let globalScorePlayer1 = 99;
+let globalScorePlayer2 = 99;
 let currentScorePlayer1 = 0;
 let currentScorePlayer2 = 0;
 let currentPlayer = 1;
@@ -17,8 +17,8 @@ const randomDice = () => {
 const startNewGame = () => {
     document.getElementById('winner1').classList.remove('pyro');
     document.getElementById('winner2').classList.remove('pyro');
-    globalScorePlayer1 = 0;
-    globalScorePlayer2 = 0;
+    globalScorePlayer1 = 99;
+    globalScorePlayer2 = 99;
     currentScorePlayer1 = 0;
     currentScorePlayer2 = 0;
     changePlayer(2);
@@ -97,7 +97,6 @@ const hold = () => {
         // And the winner is...
         if(globalScorePlayer1 >= 100) {
             document.getElementById('winner1').classList.add('pyro');
-            alert(`The winner is Player ${currentPlayer}`);
             document.getElementById('rollDice').style.display = 'none';
             document.getElementById('hold').style.display = 'none';
         } else {
@@ -113,7 +112,6 @@ const hold = () => {
         // And the winner is...
         if(globalScorePlayer2 >= 100) {
             document.getElementById('winner2').classList.add('pyro');
-            alert(`The winner is Player ${currentPlayer}`);
             document.getElementById('rollDice').style.display = 'none';
             document.getElementById('hold').style.display = 'none';
         } else {
