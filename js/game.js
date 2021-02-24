@@ -4,6 +4,7 @@ let globalScorePlayer2 = 0;
 let currentScorePlayer1 = 0;
 let currentScorePlayer2 = 0;
 let currentPlayer = 1;
+document.getElementById('player1Name').style.fontWeight = '400';
 
 // Return the random result of the dice
 const randomDice = () => {
