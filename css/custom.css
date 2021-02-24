@@ -7,6 +7,16 @@ body {
     background: linear-gradient(90deg, #f0f0f0 50%, #ffffff 50%);
 }
 
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:active
+{
+    outline:none;
+}
+
 .main-grid .grid-new-game,
 .main-grid .grid-player1,
 .main-grid .grid-player2,
@@ -76,10 +86,16 @@ ion-icon {
 }
 
 .current-point {
-    display: none;
+    opacity: 0;
     height: 16px;
 }
 
 .current-point.active {
-    display: inline-block;
+    opacity: 1;
+}
+
+#dice img {
+    box-shadow: 0px -1px 37px -7px rgba(87,87,87,0.41);
+    -webkit-box-shadow: 0px -1px 37px -7px rgba(87,87,87,0.41);
+    -moz-box-shadow: 0px -1px 37px -7px rgba(87,87,87,0.41);
 }
