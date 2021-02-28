@@ -76,7 +76,7 @@ const rollDice = () => {
                 document.getElementById('player1Current').innerHTML = 0;
                 animateCSS('#player1Current', 'zoomIn');
             } else {
-                currentScorePlayer2 += 0;
+                currentScorePlayer2 = 0;
                 document.getElementById('player2Current').innerHTML = 0;
                 animateCSS('#player2Current', 'zoomIn');
             }
