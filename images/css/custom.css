@@ -61,12 +61,6 @@ a:active
     font-weight: 400;
 }
 
-#player1Name,
-#player2Name
-{
-    font-size: 2em;
-}
-
 #newGame,
 #rollDice,
 #hold
@@ -77,7 +71,6 @@ a:active
 .current-square {
     background-color: #ea4d4c;
     padding: 20px;
-    width: 50%;
     margin: auto;
 }
 
@@ -99,3 +92,21 @@ ion-icon {
     -webkit-box-shadow: 0px -1px 37px -7px rgba(87,87,87,0.41);
     -moz-box-shadow: 0px -1px 37px -7px rgba(87,87,87,0.41);
 }
+
+@media (min-width: 576px) {
+    #player1Name,
+    #player2Name {
+        font-size: 2em;
+    }
+
+    .current-square {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .current-square {
+        padding: 0px;
+    }
+}
+
