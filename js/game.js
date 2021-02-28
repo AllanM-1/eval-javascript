@@ -4,12 +4,18 @@ let globalScorePlayer2 = 0;
 let currentScorePlayer1 = 0;
 let currentScorePlayer2 = 0;
 let currentPlayer = 1;
-document.getElementById('player1Name').style.fontWeight = '400';
 
 // Return the random result of the dice
 const randomDice = () => {
     let min = 1;
     let max = 6;
+    return min+Math.floor(Math.random()*(max-min+1));
+}
+
+// Return the random result of the dice
+const randomPlayer = () => {
+    let min = 1;
+    let max = 2;
     return min+Math.floor(Math.random()*(max-min+1));
 }
 
@@ -21,7 +27,8 @@ const startNewGame = () => {
     globalScorePlayer2 = 0;
     currentScorePlayer1 = 0;
     currentScorePlayer2 = 0;
-    changePlayer(2);
+    currentPlayer = randomPlayer();
+    changePlayer((currentPlayer == 1) ? 2 : 1);
 
     document.getElementById('player1Current').innerHTML = "0";
     document.getElementById('player2Current').innerHTML = "0";
@@ -76,7 +83,7 @@ const rollDice = () => {
                 document.getElementById('player1Current').innerHTML = 0;
                 animateCSS('#player1Current', 'zoomIn');
             } else {
-                currentScorePlayer2 += 0;
+                currentScorePlayer2 = 0;
                 document.getElementById('player2Current').innerHTML = 0;
                 animateCSS('#player2Current', 'zoomIn');
             }
@@ -157,3 +164,5 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
 
         node.addEventListener('animationend', handleAnimationEnd, {once: true});
     });
+
+startNewGame();

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Dice Game</title>
     <link rel="icon" href="favicon.ico" />
-    <link href="images/css/ionic.bundle.css" rel="stylesheet">
-    <link href="images/css/custom.css" rel="stylesheet">
-    <link href="images/css/pyro.css" rel="stylesheet">
-    <link rel="stylesheet" href="images/css/animate.min.css" />
+    <link href="css/ionic.bundle.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/pyro.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.min.css" />
 </head>
 <body class="ion-text-uppercase">
     <ion-grid class="main-grid">
@@ -19,7 +19,7 @@
             </ion-col>
         </ion-row>
         <ion-row class="middle-row ion-align-items-center">
-            <ion-col size-md="4" size-xs="12" class="grid-player1">
+            <ion-col size-md="4" class="grid-player1">
                 <div id="player1Name">
                     Player 1 <ion-icon name="ellipse" class="current-point active"></ion-icon>
                 </div>
@@ -29,12 +29,12 @@
                 </div>
                 <div class="global-score" id="player1Global">0</div>
             </ion-col>
-            <ion-col size-md="4" size-xs="12" class="grid-dice">
+            <ion-col size-md="4" class="grid-dice">
                 <div id="dice">
                     <img width="120" src="images/dice0.svg" />
                 </div>
             </ion-col>
-            <ion-col size-md="4" size-xs="12" class="grid-player2">
+            <ion-col size-md="4" class="grid-player2">
                 <div id="player2Name">
                     Player 2 <ion-icon name="ellipse" class="current-point"></ion-icon>
                 </div>
@@ -46,13 +46,13 @@
             </ion-col>
         </ion-row>
         <ion-row class="bottom-row ion-align-items-center">
-            <ion-col size-md="4" size-xs="12" class="grid-current-player ion-align-self-center">
+            <ion-col size-md="4" class="grid-current-player ion-align-self-center">
                 <div class="current-square">
                     Current
                     <div class="current-score" id="player1Current">0</div>
                 </div>
             </ion-col>
-            <ion-col size-md="4" size-xs="12" class="grid-player-options">
+            <ion-col size-md="4" class="grid-player-options">
                 <ion-grid>
                     <ion-row class="top-row ion-align-items-center">
                         <ion-col size="12" class="grid-roll-dice">
@@ -70,7 +70,7 @@
                     </ion-row>
                 </ion-grid>
             </ion-col>
-            <ion-col size-md="4" size-xs="12" class="grid-current-player">
+            <ion-col size-md="4" class="grid-current-player">
                 <div class="current-square">
                     Current
                     <div class="current-score" id="player2Current">0</div>
@@ -81,6 +81,6 @@
 
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-    <script type="text/javascript" src="images/js/game.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
 </body>
 </html>
